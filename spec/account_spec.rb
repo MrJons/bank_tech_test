@@ -31,11 +31,24 @@ require 'account'
        it 'history records deposit' do
          account = Account.new
          account.add_funds(100, '01/01/2017')
-         expect(account.history).to eq([['01/01/2017', 100, 100]])
+         expect(account.history).to eq([['01/01/2017', 100, "-", 100]])
        end
      end
 
+     context 'withdrawls' do
 
+       it 'funds can be withdrawn' do
+         account = Account.new(300)
+         account.reduce_funds(100)
+         expect(account.balance).to eq(200)
+       end
+
+       it 'history records withdrawl' do
+         account = Account.new(300)
+         account.reduce_funds(100, '01/01/2017')
+         expect(account.history).to eq([['01/01/2017', "-", 100, 200]])
+       end
+     end
 
    end
  end
