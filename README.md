@@ -10,7 +10,8 @@
   - .withdraw(amount, date*)
   - .print_statement
 
-<sup> * </sup> date arguement included in above methods for sake of veriety
+*
+ date arguement included in above methods for sake of veriety
 
 ---
 

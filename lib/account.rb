@@ -21,7 +21,7 @@ class Account
   end
 
   def construct_statement
-    fail "No account history" if history = {}
+    fail "No account history" if history == []
     puts "---date--- || credit || debit || balance"
     history.reverse.each do |entry|
       puts "#{entry[0]} || #{entry[1]} || #{entry[2]} || #{entry[3]}"
@@ -32,9 +32,9 @@ class Account
 
   def record_history(type, amount, date)
     if type == "deposit"
-      @history << [date, amount, "-", @balance]
-    else
-      @history << [date, "-", amount, @balance]
+      @history << [date, amount,   "-" , @balance]
+    elsif type == "withdrawl"
+      @history << [date,  "-"  , amount, @balance]
     end
   end
 
