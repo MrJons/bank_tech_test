@@ -9,9 +9,10 @@
 2) Construct Account class - add_funds; `complete` <br>
 3) Construct Account class - reduce_funds; `complete`<br>
 4) Construct Account class - build_statement; `complete`<br>
-5) Construct ATM class - deposit; <br>
-6) Construct ATM class - withdraw; <br>
-7) Construct ATM class - statement; <br>
+5) Construct ATM class - deposit; `complete`<br>
+6) Construct ATM class - withdraw; `complete`<br>
+7) Construct ATM class - statement; `complete`<br>
+8) refactor history array in to own class.
 
 ---
 
