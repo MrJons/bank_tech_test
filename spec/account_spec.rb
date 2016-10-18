@@ -43,6 +43,11 @@ require 'account'
          expect(account.balance).to eq(200)
        end
 
+       it 'raises error if withdraw request exceeds available balance' do
+         account = Account.new(10)
+         expect{account.reduce_funds(50)}.to raise_error("Insuficcient funds")
+       end
+
        it 'history records withdrawl' do
          account = Account.new(300)
          account.reduce_funds(100, '01/01/2017')
@@ -51,6 +56,11 @@ require 'account'
      end
 
      context 'statement' do
+
+       it 'raises error if there is no account history' do
+         account = Account.new
+         expect{account.construct_statement}.to raise_error("No account history")
+       end
 
        it 'can print statement of history' do
          account = Account.new

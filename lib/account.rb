@@ -1,4 +1,4 @@
-# Responsible for enacting requests on the account/balance made by the ATM class
+# Responsible for enacting requests on the history made by the ATM class
 
 class Account
 
@@ -15,11 +15,13 @@ class Account
   end
 
   def reduce_funds(amount, date=Time.now.strftime("%d/%m/%Y"))
+    fail "Insuficcient funds" if amount > balance
     @balance -= amount
     record_history("withdrawl", amount, date)
   end
 
   def construct_statement
+    fail "No account history" if history = {}
     puts "---date--- || credit || debit || balance"
     history.reverse.each do |entry|
       puts "#{entry[0]} || #{entry[1]} || #{entry[2]} || #{entry[3]}"
