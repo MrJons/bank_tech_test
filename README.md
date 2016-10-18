@@ -5,7 +5,7 @@
 ---
 
 #### Progress points
-1) Init project, Rspec & README file; <br>
+1) Init project, Rspec & README file; `complete` <br>
 2) Construct Account class - add_funds; <br>
 3) Construct Account class - reduce_funds; <br>
 4) Construct Account class - build_statement; <br>
