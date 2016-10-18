@@ -19,6 +19,13 @@ class Account
     record_history("withdrawl", amount, date)
   end
 
+  def construct_statement
+    puts "---date--- || credit || debit || balance"
+    history.reverse.each do |entry|
+      puts "#{entry[0]} || #{entry[1]} || #{entry[2]} || #{entry[3]}"
+    end
+  end
+
   private
 
   def record_history(type, amount, date)

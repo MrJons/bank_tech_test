@@ -50,5 +50,17 @@ require 'account'
        end
      end
 
+     context 'statement' do
+
+       it 'can print statement of history' do
+         account = Account.new
+         account.add_funds(500, '01/01/2017')
+         account.reduce_funds(150, '03/01/2017')
+         expect(account.history).to eq([['01/01/2017', 500, "-", 500], ['03/01/2017', "-", 150, 350]])
+       end
+
+       #To add further test, spying on STDOUT of printed statement in refactor.
+     end
+
    end
  end
